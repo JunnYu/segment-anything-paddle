@@ -24,19 +24,19 @@ If you want to use `paddlepaddle xformers`, you need to install `develop` versio
 
 Install Segment Anything:
 
-```
+```sh
 pip install git+https://github.com/junnyu/segment-anything-paddle.git
 ```
 
 or clone the repository locally and install with
 
-```
+```sh
 git clone https://github.com/junnyu/segment-anything-paddle.git
 cd segment-anything-paddle; pip install -e .
 ```
 
 The following optional dependencies are necessary for mask post-processing, saving masks in COCO format, the example notebooks, and exporting the model in ONNX format. `jupyter` is also required to run the example notebooks.
-```
+```sh
 pip install opencv-python pycocotools matplotlib
 ```
 
@@ -45,7 +45,7 @@ pip install opencv-python pycocotools matplotlib
 
 First download a [model checkpoint](#model-checkpoints). Then the model can be used in just a few lines to get masks from a given prompt:
 
-```
+```python
 from segment_anything_paddle import build_sam, SamPredictor
 # if we load a pytorch model, we will autoconvert this to paddle model
 predictor = SamPredictor(build_sam(checkpoint="</path/to/model.pth>"))
@@ -55,7 +55,7 @@ masks, _, _ = predictor.predict(<input_prompts>)
 
 or generate masks for an entire image:
 
-```
+```python
 from segment_anything_paddle import build_sam, SamAutomaticMaskGenerator
 # if we load a pytorch model, we will autoconvert this to paddle model
 mask_generator = SamAutomaticMaskGenerator(build_sam(checkpoint="</path/to/model.pth>"))
@@ -64,7 +64,7 @@ masks = mask_generator.generate(<your_image>)
 
 Additionally, masks can be generated for images from the command line:
 
-```
+```sh
 python scripts/amg.py --checkpoint <path/to/sam/checkpoint> --input <image_or_folder> --output <output_directory>
 ```
 
