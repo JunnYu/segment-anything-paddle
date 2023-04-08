@@ -46,7 +46,8 @@ pip install opencv-python pycocotools matplotlib
 First download a [model checkpoint](#model-checkpoints). Then the model can be used in just a few lines to get masks from a given prompt:
 
 ```
-segment_anything_paddle_paddle import build_sam, SamPredictor 
+from segment_anything_paddle import build_sam, SamPredictor
+# if we load a pytorch model, we will autoconvert this to paddle model
 predictor = SamPredictor(build_sam(checkpoint="</path/to/model.pth>"))
 predictor.set_image(<your_image>)
 masks, _, _ = predictor.predict(<input_prompts>)
@@ -55,7 +56,8 @@ masks, _, _ = predictor.predict(<input_prompts>)
 or generate masks for an entire image:
 
 ```
-segment_anything_paddle_paddle import build_sam, SamAutomaticMaskGenerator
+from segment_anything_paddle import build_sam, SamAutomaticMaskGenerator
+# if we load a pytorch model, we will autoconvert this to paddle model
 mask_generator = SamAutomaticMaskGenerator(build_sam(checkpoint="</path/to/model.pth>"))
 masks = mask_generator.generate(<your_image>)
 ```
@@ -77,7 +79,8 @@ See the examples notebooks on [using SAM with prompts](/notebooks/predictor_exam
 
 Three model versions of the model are available with different backbone sizes. These models can be instantiated by running 
 ```
-segment_anything_paddle_paddle import sam_model_registry
+from segment_anything_paddle import sam_model_registry
+# if we load a pytorch model, we will autoconvert this to paddle model
 sam = sam_model_registry["<name>"](checkpoint="<path/to/checkpoint>")
 ```
 Click the links below to download the checkpoint for the corresponding model name. The default model in bold can also be instantiated with `build_sam`, as in the examples in [Getting Started](#getting-started).
