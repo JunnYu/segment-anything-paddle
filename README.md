@@ -78,7 +78,7 @@ See the examples notebooks on [using SAM with prompts](/notebooks/predictor_exam
 ## <a name="Models"></a>Model Checkpoints
 
 Three model versions of the model are available with different backbone sizes. These models can be instantiated by running 
-```
+```python
 from segment_anything_paddle import sam_model_registry
 # if we load a pytorch model, we will autoconvert this to paddle model
 sam = sam_model_registry["<name>"](checkpoint="<path/to/checkpoint>")
