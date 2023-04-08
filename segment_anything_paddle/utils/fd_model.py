@@ -15,7 +15,7 @@ from ..modeling import Sam
 from .amg import calculate_stability_score
 
 
-class SamFastdeployModel(nn.Layer):
+class SamFastDeployModel(nn.Layer):
     """
     This model should not be called directly, but is used in FastDeploy export.
     It combines the prompt encoder, mask decoder, and mask postprocessing of Sam,

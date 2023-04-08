@@ -9,7 +9,7 @@
 # import paddle.nn as nn
 
 # from segment_anything_paddle import sam_model_registry
-# from segment_anything_paddle.utils.fd_model import SamFastdeployModel
+# from segment_anything_paddle.utils.fd_model import SamFastDeployModel
 
 # import argparse
 
@@ -90,7 +90,7 @@
 #     print("Loading model...")
 #     sam = sam_model_registry[model_type](checkpoint=checkpoint)
 
-#     fastdeploy_model = SamFastdeployModel(
+#     fastdeploy_model = SamFastDeployModel(
 #         model=sam,
 #         return_single_mask=return_single_mask,
 #         use_stability_score=use_stability_score,
